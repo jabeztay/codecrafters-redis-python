@@ -5,7 +5,7 @@ import socket  # noqa: F401
 async def handle_client(loop, conn):
     with conn:
         while True:
-            data = await loop.sock_recv(1024)
+            data = await loop.sock_recv(conn, 1024)
             if not data:
                 break
             await loop.sock_sendall(b"+PONG\r\n")
