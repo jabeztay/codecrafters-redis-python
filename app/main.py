@@ -8,7 +8,7 @@ async def handle_client(loop, conn):
             data = await loop.sock_recv(conn, 1024)
             if not data:
                 break
-            await loop.sock_sendall(b"+PONG\r\n")
+            await loop.sock_sendall(conn, b"+PONG\r\n")
 
 async def main():
     print("Starting BYO Redis Server...")
